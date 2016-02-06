@@ -1,0 +1,19 @@
+body {
+	background-color: grey;
+	padding: 30px;
+}
+
+.container {
+	background-color: white;
+	padding: 30px;
+
+}
+
+.h1{
+	
+	font-family: "Helvetica Neue", Times, serif;
+}
+.p {
+    font-family: "Georgia", Times, serif;
+
+}
