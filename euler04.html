@@ -1,0 +1,154 @@
+<!DOC TYPE html>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Let's Code With Jason Sutter</title>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class= "navbar-">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Let's Code    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="project_euler.html">Project Euler</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-6" align="left">
+               <a href="euler03.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+            </div>
+            <div class="col-lg-6" align="right">
+                <a href="euler05.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
+                    </h2>
+                    <h4 class="intro-text text-center">
+                        <em>Largest palindrome product<br>Problem 04</em>
+                    </h4>
+                    
+                    <hr>
+                
+					<p>A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</p>
+
+                    <p>Find the largest palindrome made from the product of two 3-digit numbers.</p>
+                    
+                    <div class="well">
+
+
+                                              
+                        <samp>#set up count and a blank array for palindrome</samp><br>
+                        <code>count = 100</code><br>
+                        <code>palindrome = []</code><br><br>
+
+                        <samp>#Check if count is less then 999</samp><br>
+                        <code>while count < 999</code><br>
+                        <samp>&nbsp;#Set count1 too 100,</samp><br>
+                        <samp>&nbsp;#Check if count1 is less then 999</samp><br>
+                        <code>&nbsp;count1 = 100</code><br>
+                        <code>&nbsp;while count1 < 999</code><br><br>
+                                
+                        <code>&nbsp;&nbsp;product = (count * count1)</code><br>
+                        <code>&nbsp;&nbsp;test_product = product.to_s</code><br>
+                        <code>&nbsp;&nbsp;if test_product.length == 6</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;if (test_product[0] == test_product[-1]) && (test_product[1] == test_product[-2]) && (test_product[2] == test_product[-3])</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;palindrome << test_product</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;end</code><br>
+                        <code>&nbsp;&nbsp;end</code><br>
+                        <code> &nbsp;&nbsp;count1 += 1</code><br>
+                        <code>&nbsp;end</code><br>
+                        <code>&nbsp;ount1 = 100</code><br>
+                        <code>&nbsp;count += 1</code><br>
+                        <code>end</code><br><br>
+
+                        <code>p "The Solution is: "  + palindrome.sort {|a, b| a <=> b }.last.to_s</code> 
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/04_Euler.rb">Here</a></p></center>
+                </div>
+                
+            </div>
+        </div>
+</div>
+    <!-- /.container -->
+
+
+	<br>
+
+
+
+<footer>
+<div >
+    <div class="row">
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
+        </div>
+    </div>
+</div>
+</footer>
+
+    
+
+  
+
+</body>
+
+
+
+

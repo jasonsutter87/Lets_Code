@@ -21,7 +21,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
-        <div>
+        <div class= "navbar-">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -64,25 +64,45 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
-                        <strong>Let's Code</strong>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
                     </h2>
-                    <hr>
-                </div>
-                <div class="col-md-6">
-                	<center><img class="img-responsive img-border-left" src="img/me.jpg" alt=""  height="360" width="420"></center>
+                    <h4 class="intro-text text-center">
+                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                    </h4>
                     
-                </div>
-                <div class="col-md-6">
-                	<br><br>
+                    <hr>
+                
+					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <div class="well">
+                      
+                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
+                        <code> count = 0</code><br>
+                        <code> sum = 0</code><br> 
 
-					<p>Welcome to my website! <em>Let's code with Jason Sutter</em> is a blog where I openly share journey through the programming world. My plan is to constantly update this site to showcase my knowledge.</p>
+                        <samp> #loop though the numbers 0 through  1000</samp><br>
+                        <code> while count < 1000</code><br>
+                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
+                        <code>&nbsp;if count % 3 == 0</code><br>
+                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
+                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
+                        <code>&nbsp;elsif count % 5 == 0</code><br>
+                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
+                        <code>&nbsp;end</code><br>
+                        <code>&nbsp;count += 1</code><br>
+                        <code>end</code><br>
+
+                        <samp> #the Solution</samp><br>
+                        <code> p "The Solution is: " + sum.to_s</code> 
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
                 </div>
-                <div class="clearfix"></div>
+                
             </div>
         </div>
 </div>
-
     <!-- /.container -->
 
 
@@ -90,21 +110,17 @@
 
 
 
-
-
-	<!-- /.container     -->
-<div class="container">
+<footer>
+<div >
     <div class="row">
-        <div class="box">
-            <div class="col-lg-12 text-center">
-                <footer>
-                    <p>Copyright &copy; Jason Sutter 2016</p>
-                </footer>   	   
-            </div>
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
         </div>
     </div>
 </div>
-
+</footer>
 
     
 

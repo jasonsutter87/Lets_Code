@@ -1,0 +1,157 @@
+<!DOC TYPE html>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Let's Code With Jason Sutter</title>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class= "navbar-">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Let's Code    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="project_euler.html">Project Euler</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-6" align="left">
+               <a href="euler02.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+            </div>
+            <div class="col-lg-6" align="right">
+                <a href="euler04.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
+                    </h2>
+                    <h4 class="intro-text text-center">
+                        <em>Largest prime factor<br>Problem 03</em>
+                    </h4>
+                    
+                    <hr>
+                
+					<p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
+                    <p>What is the largest prime factor of the number 600851475143 ?</p>
+                    
+                    <div class="well">
+
+
+
+                        <samp>#What is the largest prime factor of the number 600851475143 ?</samp><br>
+                        <code>require 'prime'</code><br><br>
+
+                        <samp>#target number</samp><br>
+                        <code>target = 600851475143</code> <br><br>
+
+                        <samp>#set count to 1 and a blank array for the target list</samp><br>
+                        <code>count = 1</code> <br>
+                        <code>theList = []</code> <br><br>
+
+                        <samp>#while count is less or even to the target number Check if the number is prime</samp><br>
+                        <code>while count <=  target</code> <br>
+                        <code>&nbsp;if target % count == 0</code> <br>
+                        <code>&nbsp;&nbsp;if (Prime.prime?(count) == true) && (count != 1)</code> <br>
+                        <samp> &nbsp;&nbsp;&nbsp;#if the number is prime add that number to the target list</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;if theList[0] == nil</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;theList << count</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;elsif count > theList[-1]</code> <br>
+                        <code> &nbsp;&nbsp;&nbsp;&nbsp;theList << count</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;end</code> <br>
+                        <code>&nbsp;&nbsp;elsif count != 1</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;count = target</code> <br>
+                        <code>&nbsp;&nbsp;end</code> <br>
+                        <code>&nbsp;end</code> <br>
+                        <code>&nbsp;count += 1</code> <br>
+                        <code>end</code> <br><br>
+
+                        <samp>#the solution</samp><br>
+                        <code>p "The Solution is: " +  theList.last.to_s</code> 
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/03_Euler.rb">Here</a></p></center>
+                </div>
+                
+            </div>
+        </div>
+</div>
+    <!-- /.container -->
+
+
+	<br>
+
+
+
+<footer>
+<div >
+    <div class="row">
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
+        </div>
+    </div>
+</div>
+</footer>
+
+    
+
+  
+
+</body>
+
+
+
+

@@ -1,0 +1,166 @@
+<!DOC TYPE html>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Let's Code With Jason Sutter</title>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class= "navbar-">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Let's Code    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="project_euler.html">Project Euler</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-6" align="left">
+               <a href="euler04.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+            </div>
+            <div class="col-lg-6" align="right">
+                <a href="euler06.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
+                    </h2>
+                    <h4 class="intro-text text-center">
+                        <em>Smallest multiple<br>Problem 05</em>
+                    </h4>
+                    
+                    <hr>
+                
+					<p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p>
+
+<p>What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?</p>
+                    <div class="well">
+
+
+                        <samp>#Make a Method that with take in a number and checks if it is evenly divisible by all of the numbers from 1 to 20.</samp><br>
+                        <code>$arr = []</code><br><br>
+
+                        <code>def smallest_positive(x)</code> <br>
+                        <code>&nbsp;if x % 1 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 2 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 3 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 4 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 5 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 6 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 7 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 8 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 9 == 0 &&</code><br> 
+                        <code>&nbsp;&nbsp;x % 10 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 11 == 0 && </code> <br>
+                        <code>&nbsp;&nbsp;x % 12 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 13 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 14 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 15 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 16 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 17 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 18 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp;x % 19 == 0 &&</code> <br>
+                        <code>&nbsp;&nbsp; % 20 == 0</code> <br><br>
+                            
+                        <code>&nbsp;&nbsp;if $arr == [] && (x != 0 )</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;$arr << x</code> <br>
+                        <code>&nbsp;&nbsp;end</code> <br>
+                        <code>&nbsp;end</code> <br>
+                        <code>end</code> <br><br>
+
+
+                        <samp>#Count from 0 up to 500000000 and run our</samp><br>
+                        <code>count = 0 </code> <br>
+                        <code>while count < 500000000</code> <br>
+                        <code>&nbsp;smallest_positive(count)</code> <br>
+                        <code>&nbsp;count += 1</code> <br>
+                        <code>end</code> <br><br>
+
+                        <code>p "The Solution is: " +  $arr[0].to_s </code> 
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/05_Euler.rb">Here</a></p></center>
+                </div>
+                
+            </div>
+        </div>
+</div>
+    <!-- /.container -->
+
+
+	<br>
+
+
+
+<footer>
+<div >
+    <div class="row">
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
+        </div>
+    </div>
+</div>
+</footer>
+
+    
+
+  
+
+</body>
+
+
+
+

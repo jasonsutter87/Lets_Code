@@ -21,7 +21,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
-        <div>
+        <div class= "navbar-">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -59,30 +59,63 @@
     </nav>
 
 <div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-6" align="left">
+               <a href="euler09.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+            </div>
+            <div class="col-lg-6" align="right">
+                <a href="euler11.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+            </div>
+        </div>
+    </div>
 
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
-                        <strong>Let's Code</strong>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
                     </h2>
-                    <hr>
-                </div>
-                <div class="col-md-6">
-                	<center><img class="img-responsive img-border-left" src="img/me.jpg" alt=""  height="360" width="420"></center>
+                    <h4 class="intro-text text-center">
+                        <em>Summation of primes<br>Problem 10</em>
+                    </h4>
                     
-                </div>
-                <div class="col-md-6">
-                	<br><br>
+                    <hr>
+                
+					<p>The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.</p>
 
-					<p>Welcome to my website! <em>Let's code with Jason Sutter</em> is a blog where I openly share journey through the programming world. My plan is to constantly update this site to showcase my knowledge.</p>
+                    <p>Find the sum of all the primes below two million.</p>
+                    <div class="well">
+                        <samp>#use the prime class</samp><br>
+                        <code>require "prime"</code><br>
+                        <br>
+                        <samp>#start count and set the sum to 0</samp><br>
+                        <code>sum = 0</code><br>
+                        <code>count = 0 </code><br>
+                        <br>
+                        <samp>#loop if the count is less then 2 million</samp> <br>
+                        <code>while count < 2000000</code><br>
+                        <samp>&nbsp;#if the count is a prime number continue</samp><br>
+                        <code>&nbsp;if Prime.prime?(count) == true</code><br>
+                        <samp>&nbsp;&nbsp;#Sum up the numbers</samp><br>
+                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
+                        <code>&nbsp;end</code><br>
+                        <samp>&nbsp;#advance the count</samp><br>
+                        <code>&nbsp;ount += 1 </code><br>
+                        <code>end</code><br>
+                        <br>
+                        <samp>#The Solution</samp><br>
+                        <code>p "The Solution is: " +  sum.to_s</code>
+
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/10_Euler.rb">Here</a></p></center>
                 </div>
-                <div class="clearfix"></div>
+                
             </div>
         </div>
 </div>
-
     <!-- /.container -->
 
 
@@ -90,21 +123,17 @@
 
 
 
-
-
-	<!-- /.container     -->
-<div class="container">
+<footer>
+<div >
     <div class="row">
-        <div class="box">
-            <div class="col-lg-12 text-center">
-                <footer>
-                    <p>Copyright &copy; Jason Sutter 2016</p>
-                </footer>   	   
-            </div>
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
         </div>
     </div>
 </div>
-
+</footer>
 
     
 

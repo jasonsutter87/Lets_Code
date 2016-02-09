@@ -1,0 +1,164 @@
+<!DOC TYPE html>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Let's Code With Jason Sutter</title>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class= "navbar-">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Let's Code    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="project_euler.html">Project Euler</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-6" align="left">
+               <a href="euler08.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+            </div>
+            <div class="col-lg-6" align="right">
+                <a href="euler10.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
+                    </h2>
+                    <h4 class="intro-text text-center">
+                        <em>Special Pythagorean triplet<br>Problem 09</em>
+                    </h4>
+                    
+                    <hr>
+                
+					<p>A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,</p>
+
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;a2 + b2 = c2</p>
+                    <p>For example, 32 + 42 = 9 + 16 = 25 = 52.</p>
+
+                    <p>There exists exactly one Pythagorean triplet for which a + b + c = 1000.</p>
+                    <p>Find the product abc.</p>
+                    <div class="well">
+             
+                        <samp>#set a final target and Product that</samp><br>
+                        <code>target = 1000</code><br>
+                        <code>pythagoreanTripletProduct = 0 </code><br>
+                        <br>  
+                        <samp># set count 1 and loop it until it is greater than or equal to the target</samp><br>
+                        <code>count1 = 1</code><br>
+                        <code>while count1 <= ( target )</code><br>
+
+                        <samp>&nbsp;# set count 2 and loop it until it is greater than or equal to the target</samp><br>
+                        <code>&nbsp;count2 = 2</code><br>
+                        <code>&nbsp;while count2 <= ( target )</code><br>
+                        <samp>&nbsp;&nbsp;# set count 3 and loop it until it is greater than or equal to the target</code><br>
+                        <code>&nbsp;&nbsp;count3 = 3</samp><br>
+                        <code>&nbsp;&nbsp;while count3 <= ( target )</code><br>
+                         <samp>&nbsp;&nbsp;#if count1, count2, count3 equals the target and (count1 is less than count2 and count2 is less than count3 ) do this V</samp><br>
+                         <code>&nbsp;&nbsp;if (count1 + count2 + count3 ==  target) && (count1 < count2 && count2 < count3)</code> <br><br>           
+                        <code>&nbsp;&nbsp;&nbsp;a2 = (count1 ** 2)</code> <br> 
+                        <code>&nbsp;&nbsp;&nbsp;b2 = (count2 ** 2)</code>  <br>
+                        <code>&nbsp;&nbsp;&nbsp;c2 = (count3 ** 2)</code>  <br>
+                         <samp>&nbsp;&nbsp;&nbsp;#find the pythagorean Triplet Product</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;if (a2 + b2 == c2)</code>  <br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;pythagoreanTripletProduct = count1 * count2 * count3</code> <br> 
+                        <code>&nbsp;&nbsp;&nbsp;end</code>  <br>
+                        <code>&nbsp;&nbsp;end</code>  <br>
+                        <code>&nbsp;&nbsp;count3 += 1</code>  <br>
+                         <samp>&nbsp;&nbsp;#advance the count 3</samp><br>
+                        <code>&nbsp;&nbsp;end</code>  <br>
+                        <code>&nbsp;&nbsp;count2 += 1</code>  <br>
+                         <samp>&nbsp;&nbsp;#advance count2</samp><br>
+                        <code>&nbsp;end</code>  <br>
+                        <code>&nbsp;count1 += 1</code><br>  
+                         <samp>&nbsp;#advance count1</code>  <br>
+                        <code>end</code>  <br><br>
+                        <code>p "The Solution is: " + pythagoreanTripletProduct.to_s</code>  
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/09_Euler.rb">Here</a></p></center>
+                </div>
+                
+            </div>
+        </div>
+</div>
+    <!-- /.container -->
+
+
+	<br>
+
+
+
+<footer>
+<div >
+    <div class="row">
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
+        </div>
+    </div>
+</div>
+</footer>
+
+    
+
+  
+
+</body>
+
+
+
+
