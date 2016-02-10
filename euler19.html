@@ -2,6 +2,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -59,6 +62,16 @@
     </nav>
 
 <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler18.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler20.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="box">
@@ -68,36 +81,71 @@
                         <strong>Project Euler</strong>
                     </h2>
                     <h4 class="intro-text text-center">
-                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                        <em>Counting Sundays<br>Problem 19</em>
                     </h4>
                     
                     <hr>
                 
-					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <p>You are given the following information, but you may prefer to do some research for yourself.</p><br><br>
+
+                    <p>1 Jan 1900 was a Monday.</p><br>
+                    <p>Thirty days has September,</p><br>
+                    <p>April, June and November.</p><br>
+                    <p>All the rest have thirty-one,</p><br>
+                    <p>Saving February alone,</p><br>
+                    <p>Which has twenty-eight, rain or shine.</p><br>
+                    <p>And on leap years, twenty-nine.</p><br>
+                    <p>A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.</p><br>
+                    <p>How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?</p>
+                    
                     <div class="well">
-                      
-                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
-                        <code> count = 0</code><br>
-                        <code> sum = 0</code><br> 
+               
+                        <samp>#Initiailize day in a year, count, year, count2, and sunday count</samp><br>
+                        <code>days_in_span = 36500</code><br>
+                        <code>count = 1</code><br>
+                        <code>year = 1900</code><br>
+                        <code>count2 = 0</code><br>
+                        <code>sundayCount = 0 </code><br><br>
 
-                        <samp> #loop though the numbers 0 through  1000</samp><br>
-                        <code> while count < 1000</code><br>
-                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
-                        <code>&nbsp;if count % 3 == 0</code><br>
-                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
-                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
-                        <code>&nbsp;elsif count % 5 == 0</code><br>
-                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
+
+                        <samp># loop while count less than or equal to days in the year </samp><br>
+                        <code>while count <= days_in_span</code><br>
+                        <samp>&nbsp;#checks when the count startif the year is 1900 do this.</samp> <br>
+                        <code>&nbsp;if (year == 1900)</code><br>
+                        <samp>&nbsp;&nbsp;#if the count is a sunday and if count start on the first of the month</samp><br>
+                        <code>&nbsp;&nbsp;if (count % 7 == 0) && (count == 1 ||count == 31 ||count == 60 ||count == 91 ||count == 121 ||count == 152 ||count == 182 ||count == 213 ||count == 244  ||count == 274 ||count == 305  ||count == 335 )</code><br>
+                        <samp>&nbsp;&nbsp;&nbsp;#advance sunday count</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;sundayCount = sundayCount +1</code><br>
+                        <code>&nbsp;&nbsp;end</code><br>
+                        <samp>&nbsp;#check if it is a leap year using the same logic</samp><br>
+                        <code>&nbsp;elsif ( year % 4 == 0) && (year != 1900)</code><br>
+                        <code>&nbsp;&nbsp;if (count % 7 == 0) && (count == (1 + count2) ||count == (31 + count2) ||count == (61 + count2) ||count == (92 + count2) ||count == (122 + count2) ||count == (153 + count2) ||count == (183 + count2) ||count == (214 + count2) ||count == (245 + count2) ||count == (275 + count2) ||count == (306 + count2) ||count == (336 + count2))</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sundayCount = sundayCount +1</code><br>
+                        <code>&nbsp;&nbsp;end</code><br><br>
+                                
+                        <code>&nbsp;else</code><br>
+                        <code>&nbsp;&nbsp;if (count % 7 == 0) && (count == (1 + count2) ||count == (31 + count2) ||count == (60 + count2) ||count == (91 + count2) ||count == (121 + count2) ||count == (152 + count2) ||count == (182 + count2) ||count == (213 + count2)||count == (244 + count2) ||count == (274 + count2) ||count == (305 + count2) ||count == (335 + count2))</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sundayCount = sundayCount +1</code><br>
+                        <code>&nbsp;&nbsp;end</code><br>
+                        <code>&nbsp;end</code><br><br>
+                             
+                        <samp>&nbsp;#if the count is the beginning of the new year, do this.</samp> <br>  
+                        <code>&nbsp;if count % 365 == 0</code><br>
+                        <samp>&nbsp;&nbsp;#advance the year</samp><br>
+                        <code>&nbsp;&nbsp;year = year += 1</code><br>
+                        <samp>&nbsp;&nbsp;#advance count2 by a year</samp><br>
+                        <code>&nbsp;&nbsp;count2 = count2 + 365 </code><br>
                         <code>&nbsp;end</code><br>
+                        <samp>&nbsp;#advance count</samp><br>
                         <code>&nbsp;count += 1</code><br>
-                        <code>end</code><br>
+                        <code>end</code><br><br>
 
-                        <samp> #the Solution</samp><br>
-                        <code> p "The Solution is: " + sum.to_s</code> 
+
+                        <samp>#the Solution</samp><br>
+                        <code>p "The Solution is: "+ sundayCount.to_s</code>
 
                     </div>
-                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/19_Euler.rb">Here</a></p></center>
                 </div>
                 
             </div>

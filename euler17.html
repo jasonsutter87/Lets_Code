@@ -2,6 +2,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -59,6 +62,16 @@
     </nav>
 
 <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler16.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler18.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="box">
@@ -68,36 +81,91 @@
                         <strong>Project Euler</strong>
                     </h2>
                     <h4 class="intro-text text-center">
-                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                        <em>    Number letter counts<br>Problem 17</em>
                     </h4>
                     
                     <hr>
                 
-					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <p>If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.</p><br><br>
+
+
+                    <p>If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</p><br>
+                    <br>
+
+
+
+                    <p>NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.</p>
+                    
                     <div class="well">
                       
-                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
-                        <code> count = 0</code><br>
-                        <code> sum = 0</code><br> 
+                        <samp>#Write out hashes numbers for words</samp><br>
+                        <code>ones = {1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five", 6 => "six", 7 => "seven", 8 => "eight", 9 => "nine"}</code><br>
+                        <code>teens = {10 => "ten", 11 => "eleven", 12 => "twelve", 13 => "thirteen", 14 => "fourteen", 15 => "fifteen", 16 => "sixteen", 17 => "seventeen", 18 => "eighteen", 19 => "nineteen" }</code><br>
+                        <code>tens = {1 => "ten", 2 => "twenty", 3 => "thirty", 4 => "forty", 5 => "fifty", 6 => "sixty", 7 => "seventy", 8 => "eighty", 9 => "ninety"}</code><br>
+                        <code>hundred = ["hundred"]</code><br>
+                        <code>thousand = ["thousand"]</code><br>
+                        <code>custom = [ "-", "and", " "]</code><br><br>
 
-                        <samp> #loop though the numbers 0 through  1000</samp><br>
-                        <code> while count < 1000</code><br>
-                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
-                        <code>&nbsp;if count % 3 == 0</code><br>
-                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
-                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
-                        <code>&nbsp;elsif count % 5 == 0</code><br>
-                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
+
+                        <samp>#Initiailize sum and count</samp><br>
+                        <code>sum = 0 </code><br>
+                        <code>count = 1</code><br><br>
+
+                        <samp>#Loop count if it is less our equal to 1000</samp><br>
+                        <code>while count <= 1000</code><br>
+                        <samp>&nbsp;#if count is 1..9 and count is not 0</samp><br> 
+                        <code>&nbsp;if (count.to_s.length == 1) && (count != 0)</code><br>
+                        <code>&nbsp;&nbsp;#add up the sum of the word values 1..9</code><br>
+                        <code>&nbsp;&nbsp;sum = sum + (ones[count]).length </code><br>
+                        <samp>&nbsp;# if the count is 10..19</samp><br>
+                        <code>&nbsp;elsif count.to_s.length == 2</code><br>
+                        <samp>&nbsp;&nbsp;#if the count is less than 19 do this</samp><br>
+                        <code>&nbsp;&nbsp;if count <= 19</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; sum = sum + (teens[count]).length </code><br>
+                        <samp>&nbsp;&nbsp;#if the count is a multiple of 10 do this</samp><br>
+                        <code>&nbsp;&nbsp;elsif count % 10 == 0 </code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sum = sum + (tens[count.to_s[0].to_i]).length</code> <br> 
+                        <code>&nbsp;&nbsp;else</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sum = sum + (tens[count.to_s[0].to_i] + ones[(count % 10)] ).length</code><br>  
+                        <code>&nbsp;&nbsp;end</code><br>
+                        <code>&nbsp;elsif count.to_s.length == 3</code><br><br>
+                            
+                        <samp>&nbsp;#if the count is a multiple of 100 do do </samp><br>
+                        <code>&nbsp;try =  count % 100 </code><br>
+                        <samp>&nbsp;#same logic for 100...119 , 200..219.</samp><br>
+                        <code>&nbsp;if try  <= 19</code><br>
+                        <code>&nbsp;&nbsp;if try <= 9 && try != 0</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sum = sum + (ones[(count % 1000).to_s[0].to_i] + hundred[0]  + custom[1] + ones[(count % 10).to_s[0].to_i].to_s).length </code><br>
+                        <code>&nbsp;&nbsp;elsif try != 0 && try != 10</code><br>
+                        <code>nbsp;&nbsp;&nbsp; sum = sum + (ones[(count % 1000).to_s[0].to_i]  + hundred[0]  + custom[1] + teens[count % 100].to_s ).length  </code><br>
+                        <code>&nbsp;&nbsp; end</code><br>
+                        <code>&nbsp;&nbsp;if count % 10 == 0</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;if count % 100 == 00</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + (ones[(count % 1000).to_s[0].to_i]  + hundred[0]).length </code><br>
+                        <code>&nbsp;&nbsp;&nbsp; else</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + (ones[(count % 1000).to_s[0].to_i]  + hundred[0]  + custom[1]  + tens[(count % 1000).to_s[0].to_i]).length</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; end</code><br>
+                        <code>&nbsp;&nbsp;end </code><br>
+                        <code>&nbsp;elsif try  <= 99 && try >= 20</code><br>
+                        <code>&nbsp;&nbsp;if count % 10 == 0 </code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sum = sum + (ones[(count % 1000).to_s[0].to_i]  + hundred[0]  + custom[1] +tens[count.to_s[0].to_i]).length</code><br>
+                        <code>&nbsp;&nbsp;else</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;sum = sum + (ones[(count % 1000).to_s[0].to_i] + hundred[0]  + custom[1]  +  tens[(count % 1000).to_s[1].to_i]  + ones[(count % 10).to_s[0].to_i].to_s).length </code><br>
+                        <code>&nbsp;&nbsp; end </code><br>
+                        <code>&nbsp;end</code><br>
+                        <samp>&nbsp;#if count is 1000 do this</samp><br>
+                        <code>&nbsp;elsif count == 1000</code><br>
+                        <code>&nbsp;&nbsp;sum = sum + (ones[(count % 10000).to_s[0].to_i]  + thousand[0]).length</code> <br>
+                        <code>&nbsp;else </code><br>
                         <code>&nbsp;end</code><br>
                         <code>&nbsp;count += 1</code><br>
-                        <code>end</code><br>
+                        <code>end</code><br><br>
 
-                        <samp> #the Solution</samp><br>
-                        <code> p "The Solution is: " + sum.to_s</code> 
+                        <samp>#The Solution</samp> <br>
+                        <code>p "The Solution is: " + sum.to_s</code>
 
                     </div>
-                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/17_Euler.rb">Here</a></p></center>
                 </div>
                 
             </div>

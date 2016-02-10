@@ -2,6 +2,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -59,6 +62,16 @@
     </nav>
 
 <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler19.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler21.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="box">
@@ -68,36 +81,42 @@
                         <strong>Project Euler</strong>
                     </h2>
                     <h4 class="intro-text text-center">
-                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                        <em>Factorial digit sum<br>Problem 20</em>
                     </h4>
                     
                     <hr>
                 
-					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <p>n! means n × (n − 1) × ... × 3 × 2 × 1</p><br><br>
+
+                    <p>For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,</p><br>
+                    <p>and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.</p><br><br>
+
+                    <p>Find the sum of the digits in the number 100!</p>
+                    
                     <div class="well">
-                      
-                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
-                        <code> count = 0</code><br>
-                        <code> sum = 0</code><br> 
+            
+                       
+                        <samp>#set count to 100 and sum of 1</samp><br>
+                        <code>count = 100</code><br>
+                        <code>factorial = 1</code><br>
+                        <samp>#loop while count is larger than 1 do this...</samp><br>
+                        <code>while count >= 1</code> <br><br>
+                            
+                        <code>&nbsp;factorial = factorial * count</code><br>
+                        <code>&nbsp;count -= 1</code><br>
+                        <code>end</code><br><br>
 
-                        <samp> #loop though the numbers 0 through  1000</samp><br>
-                        <code> while count < 1000</code><br>
-                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
-                        <code>&nbsp;if count % 3 == 0</code><br>
-                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
-                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
-                        <code>&nbsp;elsif count % 5 == 0</code><br>
-                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
-                        <code>&nbsp;end</code><br>
+                        <code>count = 0</code><br>
+                        <code>sum = 0 </code><br>
+                        <code>while count < factorial.to_s.length</code><br>
+                        <code>&nbsp;sum = sum + factorial.to_s[count].to_i</code><br>
                         <code>&nbsp;count += 1</code><br>
-                        <code>end</code><br>
+                        <code>end</code><br><br>
 
-                        <samp> #the Solution</samp><br>
-                        <code> p "The Solution is: " + sum.to_s</code> 
+                        <code>p "The Solution is: " + sum.to_s</code>
 
                     </div>
-                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/20_Euler.rb">Here</a></p></center>
                 </div>
                 
             </div>

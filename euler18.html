@@ -2,6 +2,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -59,6 +62,16 @@
     </nav>
 
 <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler17.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler19.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="box">
@@ -68,36 +81,121 @@
                         <strong>Project Euler</strong>
                     </h2>
                     <h4 class="intro-text text-center">
-                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                        <em>Maximum path sum I<br>Problem 18</em>
                     </h4>
                     
                     <hr>
                 
-					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <p>By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.</p><br><br>
+
+                    <p><code>3</code></p><br>
+                    <p><code>7</code> 4</p><br>
+                    <p>2 <code>4</code> 6</p><br>
+                    <p>8 5 <code>9</code> 3</p><br><br>
+
+                    <p>That is, 3 + 7 + 4 + 9 = 23.</p><br><br>
+
+                    <p>Find the maximum total from top to bottom of the triangle below:</p><br><br>
+
+                    <p>75</p><br>
+                    <p>95 64</p><br>
+                    <p>17 47 82</p><br>
+                    <p>18 35 87 10</p><br>
+                    <p>20 04 82 47 65</p><br>
+                    <p>19 01 23 75 03 34</p><br>
+                    <p>88 02 77 73 07 63 67</p><br>
+                    <p>99 65 04 28 06 16 70 92</p><br>
+                    <p>41 41 26 56 83 40 80 70 33</p><br>
+                    <p>41 48 72 33 47 32 37 16 94 29</p><br>
+                    <p>53 71 44 65 25 43 91 52 97 51 14</p><br>
+                    <p>70 11 33 28 77 73 17 78 39 68 17 57</p><br>
+                    <p>91 71 52 38 17 14 91 43 58 50 27 29 48</p><br>
+                    <p>63 66 04 68 89 53 67 30 73 16 69 87 40 31</p><br>
+                    <p>04 62 98 27 23 09 70 98 73 93 38 53 60 04 23</p><br><br>
+
+                    <p>NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)<br><br>
+
+                    
                     <div class="well">
-                      
-                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
-                        <code> count = 0</code><br>
-                        <code> sum = 0</code><br> 
+                  
 
-                        <samp> #loop though the numbers 0 through  1000</samp><br>
-                        <code> while count < 1000</code><br>
-                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
-                        <code>&nbsp;if count % 3 == 0</code><br>
-                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
-                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
-                        <code>&nbsp;elsif count % 5 == 0</code><br>
-                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
-                        <code>&nbsp;end</code><br>
-                        <code>&nbsp;count += 1</code><br>
-                        <code>end</code><br>
+                        <code>large_triangle = </code><br>
+                        <code>"75</code><br>
+                        <code>95 64</code><br>
+                        <code>17 47 82</code><br>
+                        <code>18 35 87 10</code><br>
+                        <code>20 04 82 47 65</code><br>
+                        <code>19 01 23 75 03 34</code><br>
+                        <code>88 02 77 73 07 63 67</code><br>
+                        <code>99 65 04 28 06 16 70 92</code><br>
+                        <code>41 41 26 56 83 40 80 70 33</code><br>
+                        <code>41 48 72 33 47 32 37 16 94 29</code><br>
+                        <code>53 71 44 65 25 43 91 52 97 51 14</code><br>
+                        <code>70 11 33 28 77 73 17 78 39 68 17 57</code><br>
+                        <code>91 71 52 38 17 14 91 43 58 50 27 29 48</code><br>
+                        <code>63 66 04 68 89 53 67 30 73 16 69 87 40 31</code><br>
+                        <code>04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"</code><br><br>
 
-                        <samp> #the Solution</samp><br>
-                        <code> p "The Solution is: " + sum.to_s</code> 
+
+                        <code>sums = []</code><br>
+                        <code>arr = []</code><br>
+                        <code>highest = []</code><br><br>
+
+                        <samp>#split triangle up after a line brake, and puts the string into an array</samp><br>
+                        <code>triangle_rows = large_triangle.split("\n")</code><br><br>
+
+                        <samp>#place array for each row</samp><br>
+                        <code>triangle_array = triangle_rows.collect! {|x| x.split(" ") }</code><br><br>
+
+                        <samp>#put each item in the rows into individual arrays </samp><br>
+                        <code>triangle_array.each_index {|row_count| </code><br>
+                        <code>&nbsp;triangle_array[row_count].map!{|y| Array[ y.to_i ] }</code><br>
+                        <code>}</code><br><br>
+
+                        <samp>#Find out last line in triangle</samp><br>
+                        <code>answers = triangle_array[-1]</code><br>
+                        <code>answers = answers.flatten </code><br><br>
+
+                        <samp>#find out the height of the triangle</samp><br>
+                        <code>triangle_height = (triangle_array.length - 1)</code><br><br>
+
+                        <samp>#find out the next line in the triangle</samp><br>
+                        <code>next_line = triangle_array[triangle_height - 1].flatten</code><br><br>
+
+
+                        <code>count = triangle_height</code><br>
+                        <code>answers2 = []</code><br>
+                        <samp>#count down to 0 from triangle height</samp><br>
+                        <code>(triangle_height).downto(0) { |n|</code><br>
+                        <samp>&nbsp;#count up the row</samp><br>
+                        <code>&nbsp;(0).upto(triangle_height) { |b|</code><br>
+                        <code>&nbsp;&nbsp;if n >= 1 && (answers[b + 1] != nil)</code><br>
+                        <code>&nbsp;&nbsp;next_line2 = (triangle_array[n - 1].flatten)</code><br>
+                        <samp>&nbsp;&nbsp;&nbsp;#check which element in the row is larger</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;if (answers[b] <=> answers[b + 1]) == 1</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; next_element = next_line2[b]</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp;answers2 << sum =  answers[b] + next_element</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;else</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; next_element = next_line2[b]</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; answers2 << sum =  answers[b + 1] + next_element</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;end</code><br>
+                        &nbsp;&nbsp;&nbsp; highest << answers2</code><br>
+                        <samp>&nbsp;&nbsp;&nbsp;#reset count</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;if answers2.length == count</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; answers = answers2</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; answers2 = []</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&nbsp; count -= 1</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; end</code><br>
+                        <code>&nbsp;&nbsp; end</code><br>
+                        <code>&nbsp;}</code><br>
+                        <code>}</code><br><br>
+
+                        <samp>#The solution</samp><br>
+                        <code>solution = highest.last</code><br>
+                        <code>p "The Solution is: " + solution[0].to_s</code>
 
                     </div>
-                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/18_Euler.rb">Here</a></p></center>
                 </div>
                 
             </div>

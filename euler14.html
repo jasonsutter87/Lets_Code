@@ -2,6 +2,9 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
 
 
 <!-- Latest compiled and minified CSS -->
@@ -59,6 +62,16 @@
     </nav>
 
 <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler13.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler15.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="box">
@@ -68,36 +81,64 @@
                         <strong>Project Euler</strong>
                     </h2>
                     <h4 class="intro-text text-center">
-                        <em>Multiples of 3 and 5<br>Problem 01</em>
+                        <em>Longest Collatz sequence<br>Problem 14</em>
                     </h4>
                     
                     <hr>
                 
-					<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-                    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+                    <p>The following iterative sequence is defined for the set of positive integers:</p><br><br>
+
+                    <p>&nbsp;&nbsp;n → n/2 (n is even)</p><br>
+                    <p>&nbsp;&nbsp;n → 3n + 1 (n is odd)</p><br><br>
+
+                    <p>Using the rule above and starting with 13, we generate the following sequence:</p><br><br>
+
+                    <p>&nbsp;&nbsp;13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</p><br>
+                    <p>It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.</p><br>
+
+                    <p>Which starting number, under one million, produces the longest chain?</p><br><br>
+
+                    <p>NOTE: Once the chain starts the terms are allowed to go above one million.</p>
+                                        
                     <div class="well">
-                      
-                        <samp> # create a intitial count of 0, and sum of 0</samp><br>
-                        <code> count = 0</code><br>
-                        <code> sum = 0</code><br> 
+                   
+                    <code>target = 1000000</code><br>
+                    <code>starting_num = 0</code><br>
+                    <code>count = 0</code><br>
+                    <code>highest = 0</code><br>
+                    <code>longest_Length = 0</code><br><br>
 
-                        <samp> #loop though the numbers 0 through  1000</samp><br>
-                        <code> while count < 1000</code><br>
-                        <samp> &nbsp;#if count is a multiple of 3 add to sum </samp><br>
-                        <code>&nbsp;if count % 3 == 0</code><br>
-                        <code> &nbsp;&nbsp;sum = sum + count</code><br>
-                        <samp>&nbsp;#else if count is a multiple of 5 add to sum </samp><br>
-                        <code>&nbsp;elsif count % 5 == 0</code><br>
-                        <code>&nbsp;&nbsp;sum = sum + count</code><br>
-                        <code>&nbsp;end</code><br>
-                        <code>&nbsp;count += 1</code><br>
-                        <code>end</code><br>
+                    <code>until target == 1</code><br>
+                    <samp>&nbsp;#setting a start number</samp><br>
+                    <code>&nbsp;starting_num = target</code><br>
+                    <samp>&nbsp;#reset count to 0</samp><br>
+                    <code>&nbsp;count = 0</code><br><br>
+                        
+                    <samp>&nbsp;#Until starting_num = 1 dont stop looping</samp><br>
+                    <code>&nbsp;until starting_num == 1</code><br>
+                    <code>&nbsp;&nbsp;if starting_num.odd? == false</code><br>
+                    <samp>&nbsp;&nbsp;&nbsp;#n → n/2 (n is even)</samp><br>
+                    <code>&nbsp;&nbsp;&nbsp;starting_num /= 2</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;count += 1</code><br>
+                    <code>&nbsp;&nbsp;else</code><br>
+                    <samp>&nbsp;&nbsp;&nbsp;#n → 3n + 1 (n is odd)</samp><br>
+                    <code>&nbsp;&nbsp;&nbsp;starting_num = (starting_num *3) + 1</code><br>
+                    <code>&nbsp;&nbsp;&nbsp;count += 1</code><br>
+                    <code>&nbsp;&nbsp;end</code><br>
+                    <code>&nbsp;end</code><br><br>
+                        
+                    <samp>&nbsp;# if count is larger than current longest length then set count as new highest</samp><br>
+                    <code>&nbsp;if count > longest_Length</code><br>
+                    <code>&nbsp;&nbsp;highest = target</code><br>
+                    <code>&nbsp;&nbsp;longest_Length = count</code><br>
+                    <code>&nbsp;end</code><br>
+                    <code>&nbsp;target -= 1</code><br>
+                    <code>end</code><br><br>
 
-                        <samp> #the Solution</samp><br>
-                        <code> p "The Solution is: " + sum.to_s</code> 
-
+                    <samp>#the Solution</samp><br>
+                    <code>p "The Solution is: " +  highest.to_s</code>
                     </div>
-                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/01_Euler.rb">Here</a></p></center>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/14_Euler.rb">Here</a></p></center>
                 </div>
                 
             </div>

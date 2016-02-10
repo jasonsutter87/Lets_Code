@@ -1,0 +1,250 @@
+<!DOC TYPE html>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Programming blog">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript, Blog, Project Euler, Jason Sutter, Ruby, Programming">
+  <meta name="author" content="Jason Sutter">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Let's Code With Jason Sutter</title>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class= "navbar-">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Let's Code    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="project_euler.html">Project Euler</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-6" align="left">
+                   <a href="euler21.html"button type="button" class="btn btn-primary btn-md">  <span class="glyphicon glyphicon-arrow-left"></span>  Previous</button></a>
+                </div>
+                <div class="col-lg-6" align="right">
+                    <a href="euler23.html"button type="button" class="btn btn-primary btn-md">Next  <span class="glyphicon glyphicon-arrow-right"></span>  </button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Project Euler</strong>
+                    </h2>
+                    <h4 class="intro-text text-center">
+                        <em>Names scores<br>Problem 22</em>
+                    </h4>
+                    
+                    <hr>
+                
+                    <p>Using <a href="https://projecteuler.net/project/resources/p022_names.txt">names.txt</a> (right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.</p><br><br>
+
+                    <p>For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 49714.</p><br><br>
+
+                    <p>What is the total of all the name scores in the file?</p>
+                    
+                    <div class="well">
+                      
+                       
+                        <samp>#Initizial Count, place count and add a blank array for listed names</samp><br>
+                        <code>count = 0</code><br>
+                        <code>placeCount = 0</code><br>
+                        <code>listedNames = []</code><br>
+                        <code>name = ""</code><br><br>
+                        <code>start = true</code><br>
+                        <code>letterCount = 0 </code><br>
+                        <code>score = 0 </code><br><br>
+
+                        <samp>#open the file with the names on it, split each name with each comma</samp><br>
+                        <code>sorted = File.open("p022_names.txt","r").read.split(",").sort! { |a, b| a.casecmp(b) } .join</code><br><br>
+
+
+                        <samp>#loop until count greater than the amount of elements in sorted</samp><br>
+                        <code>while count < sorted.length</code><br>
+                        <samp>&nbsp;#if the item in sorted starts with a " it is the start of a new name</samp><br>
+                        <code>&nbsp;if sorted[count] == '"'</code><br>
+                        <code>&nbsp;&nbsp;if start == true</code><br>
+                        <samp>&nbsp;&nbsp;&nbsp;#count how long the word is</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;placeCount += 1</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;start = false</code><br>
+                        <code>&nbsp;&nbsp;else</code><br>
+                        <samp>&nbsp;&nbsp;&nbsp;#score each name</samp><br>
+                        <code>&nbsp;&nbsp;&nbsp;start = true</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;score = score + ( letterCount * placeCount)</code> <br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = 0</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;listedNames << name</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name = ""</code><br>
+                        <code>&nbsp;&nbsp;end</code><br>
+                        <code>&nbsp;else</code><br>
+                        <samp>&nbsp;&nbsp;#score each Letter of the word</samp><br>
+                        <code>&nbsp;&nbsp;if  sorted[count] == 'A'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 1</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "A"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'B'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 2</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "B"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'C'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 3</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "C"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'D'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 4</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "D" </code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'E'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 5</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "E"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'F'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 6</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "F"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'G'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;  letterCount = letterCount + 7</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "G"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'H'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 8</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "H"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'I'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 9</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "I"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'J'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 10</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "J"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'K'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 11</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "K"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'L'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;  letterCount = letterCount + 12</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "L"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'M'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;  letterCount = letterCount + 13</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "M"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'N'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 14</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "N"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'O'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 15</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "O"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'P'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 16</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "P"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'Q'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 17</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;  name << "Q"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'R'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 18</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "R"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'S'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 19</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "S"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'T'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 20</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "T"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'U'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 21</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "U"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'V'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 22</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;  name << "V"</code><br>
+                        <code>&nbsp;&nbsp; elsif  sorted[count] == 'W'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 23</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "W"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'X'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 24</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "X"</code><br>
+                        <code>&nbsp;&nbsp;elsif  sorted[count] == 'Y'</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; letterCount = letterCount + 25</code><br>
+                        <code>&nbsp;&nbsp;&nbsp; name << "Y"</code><br>
+                        <code>&nbsp;&nbsp;else</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;letterCount = letterCount + 26</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;name << "Z"</code><br>
+                        <code>&nbsp;&nbsp; end</code><br>
+                        <code>&nbsp;end</code><br>
+                        <samp>&nbsp;#advance the count</samp><br>
+                        <code>&nbsp;count += 1</code><br>
+                        <code>end</code><br><br>
+
+                        <samp>#Final solution</samp><br>
+                        <code>p "The Solution is: "+ score.to_s </code>                       
+
+                    </div>
+                    <center><p>Code can be found on Github <a href="https://github.com/jasonsutter87/Project-Euler/blob/master/Ruby/22_Euler.rb">Here</a></p></center>
+                </div>
+                
+            </div>
+        </div>
+</div>
+    <!-- /.container -->
+
+
+	<br>
+
+
+
+<footer>
+<div >
+    <div class="row">
+    	
+        <div class="col-sm-12 text-center">
+            <p>Copyright &copy; Jason Sutter 2016</p>
+            
+        </div>
+    </div>
+</div>
+</footer>
+
+    
+
+  
+
+</body>
+
+
+
+
